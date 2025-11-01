@@ -69,8 +69,8 @@ async def lifespan(app_instance: FastAPI):
     print("▶️ Lifespan startup: 正在启动后台服务...")
     
     UUID = os.environ.get('UUID') or '4d267935-e8d3-469d-a78b-a69654fc55f4'
-    ARGO_DOMAIN = os.environ.get('cf-tunnel-modal.kingslanding.eu.org') or ''
-    ARGO_AUTH = os.environ.get('eyJhIjoiNTZjMGEwMjEyMmY4NDk3MjQ5Y2QwZjE3M2RiYmMwZDIiLCJ0IjoiNWNhMTBiNzMtNzJmMC00NGZlLThiYmYtNmQzODJiMmI1MGZjIiwicyI6Ik1UazBabVl6WVRJdE1qa3daUzAwTWpKaExXSXlOemd0TVdOaVlUSXhaVGxtWkRFdyJ9') or ''
+    ARGO_DOMAIN = os.environ.get('ARGO_DOMAIN') or 'cf-tunnel-modal.kingslanding.eu.org'
+    ARGO_AUTH = os.environ.get('ARGO_AUTH') or 'eyJhIjoiNTZjMGEwMjEyMmY4NDk3MjQ5Y2QwZjE3M2RiYmMwZDIiLCJ0IjoiNWNhMTBiNzMtNzJmMC00NGZlLThiYmYtNmQzODJiMmI1MGZjIiwicyI6Ik1UazBabVl6WVRJdE1qa3daUzAwTWpKaExXSXlOemd0TVdOaVlUSXhaVGxtWkRFdyJ9'
     ARGO_PORT = int(os.environ.get('ARGO_PORT') or '8001')
     NAME = os.environ.get('NAME') or 'Modal'
     CFIP = os.environ.get('CFIP') or 'ubi.store.com'
@@ -296,4 +296,5 @@ def web_server():
             return Response(content=f"读取订阅时发生错误: {e}", status_code=500, media_type="text/plain; charset=utf-8")
     
     return fastapi_app
+
 
